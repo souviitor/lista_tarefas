@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/main.css">
+  <title>ToDo VEBEA.CO</title>
+</head>
+<body>
+  <header class="cabeca">
+    <h1>ToDo VEBEA.CO</h1>
+    <nav class="lista">
+      <ul>
+        <li><a href="#" id="todas-tarefas">Todas as tarefas</a></li>
+        <li><a href="#" id="completas">Completas</a></li>
+        <li><a href="#" id="pendentes">Pendentes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="principal">
+    <h2>Adicionar uma nova tarefa</h2>
+    <div class="tarefa">
+      <label for="tarefa">Adicionar Tarefa</label>
+      <input type="text" name="tarefa" id="tarefa" placeholder="Digite a tarefa aqui">
+    </div>
+
+    <button id="btn_add" onclick="addtarefa()">Adicionar</button>
+
+    <h2>Tarefas Pendentes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Selecionar</th>
+          <th>Tarefa</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tarefa-lista">
+        <!-- As tarefas pendentes serão carregadas aqui -->
+      </tbody>
+    </table>
+
+    <h2>Tarefas Finalizadas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tarefa</th>
+          <th>Data de Conclusão</th>
+        </tr>
+      </thead>
+      <tbody id="tarefa-completadas-lista">
+        <!-- As tarefas completadas serão carregadas aqui -->
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; Desenvolvido por VEBEA.CO - 2024</p>
+  </footer>
+</body>
+<script src="./js/index.js"></script>
+</html>

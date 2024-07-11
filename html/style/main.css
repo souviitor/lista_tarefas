@@ -1,0 +1,137 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+}
+
+body{
+  /* max-width: 1440px; */
+  margin: 0 auto;
+  background-color: #453654;
+}
+.cabeca{
+  width: 100%;
+  background-color: #cfcfcf;
+  color: #000;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.cabeca h1{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: 50px;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+.cabeca .lista ul{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  font-size: 1.5em;
+  position: sticky;
+  top: 0;
+  list-style: none;
+}
+
+.cabeca .lista a {
+  display: block;
+  text-decoration: none;
+  color: #261a1a;
+  text-align: center;
+  padding: 5px;
+}
+
+.cabeca .lista a:hover {
+  text-decoration: underline;
+  transform: translateY(-5px);
+  transition: 1s ease-out;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.principal{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.principal h2{
+  font-size: 2.2em;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: bolder;
+  color: #fff;
+}
+
+.principal .tarefa label{
+  font-size: 1.5em;
+  font-weight: normal;
+  align-items: center;
+  color: #fff;
+}
+
+.principal .tarefa input{
+  width: 50%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.principal button{
+  width: 50%;
+  padding: 5px;
+  margin: 0 auto;
+  font-size: 1.3em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.principal button:hover{
+  transform: translateY(1px);
+  background-color: #857f8b;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.principal table{
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.principal table th, .principal table td{
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#tarefa-lista, #tarefa-completadas-lista{
+  color: #fff;
+}
+
+.principal table th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #857f8b;
+  color: #fff;
+}
+
+.principal .lista_tarefa{
+  margin-top: 40px;
+  background-color: #fff;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  color: #ccc;
+  margin-top: 40px;
+}
