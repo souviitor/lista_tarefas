@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Silkscreen:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Silkscreen:wght@400;700&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,12 +9,12 @@
   font-family: "Shantell Sans", cursive;
 }
 
-body{
+body {
   /* max-width: 1440px; */
   margin: 0 auto;
   background-color: #453654;
 }
-.cabeca{
+.cabeca {
   width: 100%;
   background-color: #cfcfcf;
   color: #000;
@@ -25,7 +25,7 @@ body{
   padding: 10px;
 }
 
-.cabeca h1{
+.cabeca h1 {
   font-family: "Silkscreen", sans-serif;
   margin-left: 50px;
   font-weight: 700;
@@ -33,7 +33,7 @@ body{
   font-size: 3em;
 }
 
-.cabeca .lista ul{
+.cabeca .lista ul {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -62,13 +62,13 @@ body{
   border-radius: 5px;
 }
 
-.principal{
+.principal {
   display: grid;
   align-items: center;
   justify-content: center;
 }
 
-.principal h2{
+.principal h2 {
   font-size: 2.2em;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -76,20 +76,20 @@ body{
   color: #fff;
 }
 
-.principal .tarefa label{
+.principal .tarefa label {
   font-size: 1.5em;
   font-weight: normal;
   align-items: center;
   color: #fff;
 }
 
-.principal .tarefa input{
+.principal .tarefa input {
   width: 50%;
   padding: 5px;
   margin-bottom: 10px;
 }
 
-.principal button{
+.principal button {
   width: 50%;
   padding: 5px;
   margin: 0 auto;
@@ -99,44 +99,108 @@ body{
   cursor: pointer;
 }
 
-.principal button:hover{
+.principal button:hover {
   transform: translateY(1px);
   background-color: #857f8b;
   color: #fff;
   text-transform: uppercase;
 }
 
-.principal table{
+.principal table {
   width: 100%;
   margin-top: 20px;
   border-collapse: collapse;
 }
 
-.principal table th, .principal table td{
+.principal table th,
+.principal table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
 }
 
-#tarefa-lista, #tarefa-completadas-lista{
+#tarefa-lista,
+#tarefa-completadas-lista {
   color: #fff;
 }
 
-.principal table th{
+.principal table th {
   padding-top: 12px;
   padding-bottom: 12px;
   background-color: #857f8b;
   color: #fff;
 }
 
-.principal .lista_tarefa{
+.principal .lista_tarefa {
   margin-top: 40px;
   background-color: #fff;
 }
 
-footer{
+footer {
   display: flex;
   justify-content: center;
   color: #ccc;
   margin-top: 40px;
+}
+
+@media (max-width: 667px) {
+  body {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .cabeca {
+    justify-content: center;
+
+    h1 {
+      font-family: "Silkscreen", sans-serif;
+      margin-left: 0px;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 3em;
+    }
+  }
+
+  .principal {
+    display: flex;
+    margin-left: 100px;
+    margin-top: 40px;
+  }
+  .principal button {
+    width: 50%;
+    padding: 5px;
+    margin: 0 auto;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  #incluirPopup,
+  #venderPopup {
+    margin-left: 119px;
+
+    h2 {
+      margin-top: 50px;
+      color: white;
+    }
+  }
+  label,
+  input {
+    display: flex;
+    color: #fff;
+    margin-top: 9px;
+  }
+
+  input {
+    padding: 10px;
+    width: 150px;
+  }
+  button {
+    font-size: 13px;
+    margin-left: 40px;
+    padding: 2px;
+    margin-top: 10px;
+  }
 }
