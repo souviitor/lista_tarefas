@@ -1,86 +1,114 @@
-document.addEventListener("DOMContentLoaded", carregarTarefas);
+// Inicialização
+if (!localStorage.getItem("estoque")) {
+  localStorage.setItem("estoque", JSON.stringify([]));
+}
+if (!localStorage.getItem("vendas")) {
+  localStorage.setItem("vendas", JSON.stringify([]));
+}
 
-function addtarefa() {
-  const tarefaInput = document.getElementById('tarefa');
-  const tarefa = tarefaInput.value;
+// Função para abrir e fechar pop-ups
+function abrirPopup(id) {
+  document.getElementById(id).style.display = "block";
+}
 
-  if (tarefa) {
-    const tarefas = obterTarefas();
-    tarefas.push({ texto: tarefa, status: 'Pendente', dataConclusao: null });
-    salvarTarefas(tarefas);
-    exibirTarefas();
+function fecharPopup(id) {
+  document.getElementById(id).style.display = "none";
+}
 
-    tarefaInput.value = '';
+// Função para incluir trufa
+function incluirTrufa() {
+  const sabor = document.getElementById("sabor").value;
+  const quantidade = parseInt(document.getElementById("quantidade").value);
+  const valor = parseFloat(document.getElementById("valor").value);
+
+  if (sabor && quantidade && valor) {
+    let estoque = JSON.parse(localStorage.getItem("estoque"));
+    const index = estoque.findIndex(item => item.sabor === sabor);
+
+    if (index > -1) {
+      // Atualizar quantidade no estoque
+      estoque[index].quantidade += quantidade;
+    } else {
+      // Adicionar novo sabor
+      estoque.push({ sabor, quantidade, valor });
+    }
+
+    localStorage.setItem("estoque", JSON.stringify(estoque));
+    alert("Trufa incluída com sucesso!");
+    fecharPopup("incluirPopup");
+  } else {
+    alert("Preencha todos os campos!");
   }
 }
 
-function obterTarefas() {
-  const tarefas = localStorage.getItem('tarefas');
-  return tarefas ? JSON.parse(tarefas) : [];
-}
+// Função para registrar venda
+function venderTrufa() {
+  const sabor = document.getElementById("saborVender").value;
+  const quantidade = parseInt(document.getElementById("quantidadeVender").value);
+  const comprador = document.getElementById("comprador").value;
 
-function obterTarefasCompletadas() {
-  const tarefasCompletadas = localStorage.getItem('tarefasCompletadas');
-  return tarefasCompletadas ? JSON.parse(tarefasCompletadas) : [];
-}
+  if (sabor && quantidade && comprador) {
+    let estoque = JSON.parse(localStorage.getItem("estoque"));
+    let vendas = JSON.parse(localStorage.getItem("vendas"));
 
-function salvarTarefas(tarefas) {
-  localStorage.setItem('tarefas', JSON.stringify(tarefas));
-}
+    const index = estoque.findIndex(item => item.sabor === sabor);
 
-function salvarTarefasCompletadas(tarefasCompletadas) {
-  localStorage.setItem('tarefasCompletadas', JSON.stringify(tarefasCompletadas));
-}
+    if (index > -1 && estoque[index].quantidade >= quantidade) {
+      // Atualizar estoque
+      estoque[index].quantidade -= quantidade;
 
-function exibirTarefas() {
-  const tabela = document.getElementById('tarefa-lista');
-  tabela.innerHTML = '';
-
-  const tarefas = obterTarefas();
-  const tarefasCompletadas = obterTarefasCompletadas();
-
-  tarefas.forEach((tarefa, index) => {
-    if (tarefa.status === 'Pendente') {
-      const novaLinha = tabela.insertRow();
-
-      const checkboxCell = novaLinha.insertCell(0);
-      const tarefaCell = novaLinha.insertCell(1);
-      const statusCell = novaLinha.insertCell(2);
-
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
-          const dataConclusao = new Date().toLocaleString();
-          tarefa.status = 'Completada';
-          tarefa.dataConclusao = dataConclusao;
-          tarefasCompletadas.push(tarefa);
-          tarefas.splice(index, 1);
-          salvarTarefas(tarefas);
-          salvarTarefasCompletadas(tarefasCompletadas);
-          exibirTarefas();
-        }
+      // Registrar venda
+      vendas.push({
+        sabor,
+        quantidade,
+        comprador,
+        data: new Date().toISOString(),
+        valorUnitario: estoque[index].valor,
       });
 
-      checkboxCell.appendChild(checkbox);
-      tarefaCell.textContent = tarefa.texto;
-      statusCell.textContent = tarefa.status;
+      localStorage.setItem("estoque", JSON.stringify(estoque));
+      localStorage.setItem("vendas", JSON.stringify(vendas));
+
+      alert("Venda registrada com sucesso!");
+      fecharPopup("venderPopup");
+    } else {
+      alert("Estoque insuficiente ou sabor não encontrado!");
     }
-  });
-
-  const tabelaCompletadas = document.getElementById('tarefa-completadas-lista');
-  tabelaCompletadas.innerHTML = '';
-
-  tarefasCompletadas.forEach((tarefa) => {
-    const novaLinha = tabelaCompletadas.insertRow();
-    const tarefaCell = novaLinha.insertCell(0);
-    const dataConclusaoCell = novaLinha.insertCell(1);
-
-    tarefaCell.textContent = tarefa.texto;
-    dataConclusaoCell.textContent = tarefa.dataConclusao;
-  });
+  } else {
+    alert("Preencha todos os campos!");
+  }
 }
 
-function carregarTarefas() {
-  exibirTarefas();
+// Função para exibir estoque atual
+function mostrarEstoqueAtual() {
+  const estoque = JSON.parse(localStorage.getItem("estoque"));
+  let detalhes = "<h3>Estoque Atual:</h3>";
+
+  if (estoque.length > 0) {
+    estoque.forEach(item => {
+      detalhes += `<p>${item.sabor}: ${item.quantidade} unidades (R$ ${item.valor.toFixed(2)} cada)</p>`;
+    });
+  } else {
+    detalhes += "<p>Nenhuma trufa no estoque.</p>";
+  }
+
+  document.getElementById("estoqueDetalhes").innerHTML = detalhes;
+}
+
+// Função para exibir vendas dos últimos 15 dias
+function mostrarVendas15Dias() {
+  const vendas = JSON.parse(localStorage.getItem("vendas"));
+  const quinzeDiasAtras = new Date();
+  quinzeDiasAtras.setDate(quinzeDiasAtras.getDate() - 15);
+
+  const vendasRecentes = vendas.filter(venda => new Date(venda.data) >= quinzeDiasAtras);
+
+  const quantidade = vendasRecentes.reduce((sum, venda) => sum + venda.quantidade, 0);
+  const valorTotal = vendasRecentes.reduce((sum, venda) => sum + venda.quantidade * venda.valorUnitario, 0);
+
+  let detalhes = `<h3>Vendas Últimos 15 Dias:</h3>
+                  <p>Quantidade: ${quantidade}</p>
+                  <p>Valor Total: R$ ${valorTotal.toFixed(2)}</p>`;
+
+  document.getElementById("estoqueDetalhes").innerHTML = detalhes;
 }
