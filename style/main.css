@@ -18,11 +18,8 @@ body {
   width: 100%;
   background-color: #cfcfcf;
   color: #000;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 .cabeca h1 {
@@ -33,70 +30,25 @@ body {
   font-size: 3em;
 }
 
-.cabeca .lista ul {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
-  padding: 0;
-  font-size: 1.5em;
-  position: sticky;
-  top: 0;
-  list-style: none;
-}
-
-.cabeca .lista a {
-  display: block;
-  text-decoration: none;
-  color: #261a1a;
-  text-align: center;
-  padding: 5px;
-}
-
-.cabeca .lista a:hover {
-  text-decoration: underline;
-  transform: translateY(-5px);
-  transition: 1s ease-out;
-  margin: 0;
-  border-radius: 5px;
-}
-
 .principal {
-  display: grid;
-  align-items: center;
+  display: flex;
   justify-content: center;
-}
-
-.principal h2 {
-  font-size: 2.2em;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  font-weight: bolder;
-  color: #fff;
-}
-
-.principal .tarefa label {
-  font-size: 1.5em;
-  font-weight: normal;
-  align-items: center;
-  color: #fff;
-}
-
-.principal .tarefa input {
-  width: 50%;
-  padding: 5px;
-  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .principal button {
-  width: 50%;
-  padding: 5px;
-  margin: 0 auto;
-  font-size: 1.3em;
+  width: 80%;
+  padding: 10px;
+  font-size: 2em;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  
+}
+button {
+  margin-left: 40px;
+  margin-top: 10px;
+  color: #000;
 }
 
 .principal button:hover {
@@ -106,35 +58,72 @@ body {
   text-transform: uppercase;
 }
 
-.principal table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-}
+#incluirPopup,
+#venderPopup, #estoquePopup {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  margin-left: 850px;
+  
+  button{
+    margin: 0 auto;
+    font-size: 13px;
+    padding: 2px;
+  }
 
-.principal table th,
-.principal table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
+  #formIncluir button, #formVender button{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
-#tarefa-lista,
-#tarefa-completadas-lista {
-  color: #fff;
-}
+    h2 {
+      margin-top: 50px;
+      color: white;
+    }
+  }
+  label,
+  input {
+    display: flex;
+    color: #fff;
+    margin-top: 9px;
+  }
 
-.principal table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background-color: #857f8b;
-  color: #fff;
-}
+  #estoquePopup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.principal .lista_tarefa {
-  margin-top: 40px;
-  background-color: #fff;
-}
+    button{
+      margin: 0 auto;
+    }
+
+  }
+  .popup-content {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #estoquePopup h2{
+    margin-top: 50px;
+    color: #fff;
+    text-align: center;
+  }
+
+  #estoqueDetalhes{
+    color: #fff;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+  }
+
+  input {
+    padding: 10px;
+    width: 150px;
+  }
+  
 
 footer {
   display: flex;
@@ -157,7 +146,7 @@ footer {
       margin-left: 0px;
       font-weight: 500;
       font-style: normal;
-      font-size: 3em;
+      font-size: 2em;
     }
   }
 
@@ -202,5 +191,10 @@ footer {
     margin-left: 40px;
     padding: 2px;
     margin-top: 10px;
+    color: #000;
+  }
+
+  #estoqueDetalhes{
+    color: #fff;
   }
 }

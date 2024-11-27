@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style/main.css">
-  <title>Nana's Truffes</title>
-</head>
-<body>
-  <header class="cabeca">
-    <h1>Nana's Truffes</h1>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/main.css" />
+    <title>Nana's Truffes</title>
+  </head>
+  <body>
+    <header class="cabeca">
+      <h1>Nana's Truffes</h1>
+    </header>
 
-  <main class="principal">
-    <section class="menu">
-      <button onclick="abrirPopup('incluirPopup')">Incluir</button>
-      <button onclick="abrirPopup('venderPopup')">Vender</button>
-      <button onclick="abrirPopup('estoquePopup')">Estoque</button>
-    </section>
-  </main>
+    <main class="principal">
+      <section class="menu">
+        <button onclick="abrirPopup('incluirPopup')">Incluir</button>
+        <button onclick="abrirPopup('venderPopup')">Vender</button>
+        <button onclick="abrirPopup('estoquePopup')">Estoque</button>
+      </section>
+    </main>
 
-  <!-- Modal para Incluir Trufas -->
-  <div id="incluirPopup" class="popup" style="display: none;">
-    <div class="popup-content">
-      <form id="formIncluir">
-        <h2>Incluir Trufas</h2>
-        <label>Sabor:</label>
-        <input type="text" id="sabor" required>
-        <label>Quantidade:</label>
-        <input type="number" id="quantidade" required>
-        <label>Valor Unitário (R$):</label>
-        <input type="number" id="valor" step="0.01" required>
-        <button type="button" onclick="incluirTrufa()">Salvar</button>
-      </form>
-      <button onclick="fecharPopup('incluirPopup')">Fechar</button>
+    <!-- Modal para Incluir Trufas -->
+    <div id="incluirPopup" class="popup" style="display: none">
+      <div class="popup-content">
+        <form id="formIncluir">
+          <h2>Incluir Trufas</h2>
+          <label>Sabor:</label>
+          <input type="text" id="sabor" required />
+          <label>Quantidade:</label>
+          <input type="number" id="quantidade" required />
+          <label>Valor Unitário (R$):</label>
+          <input type="number" id="valor" step="0.01" required />
+          <button type="button" onclick="incluirTrufa()">Salvar</button>
+        </form>
+        <button onclick="fecharPopup('incluirPopup')">Fechar</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Modal para Vender Trufas -->
-  <div id="venderPopup" class="popup" style="display: none;">
-    <div class="popup-content">
-      <h2>Vender Trufas</h2>
-      <form id="formVender">
-        <label>Sabor:</label>
-        <input type="text" id="saborVender" required>
-        <label>Quantidade:</label>
-        <input type="number" id="quantidadeVender" required>
-        <label>Comprador:</label>
-        <input type="text" id="comprador" required>
-        <button type="button" onclick="venderTrufa()">Registrar Venda</button>
-      </form>
-      <button onclick="fecharPopup('venderPopup')">Fechar</button>
+    <!-- Modal para Vender Trufas -->
+    <div id="venderPopup" class="popup" style="display: none">
+      <div class="popup-content">
+        <h2>Vender Trufas</h2>
+        <form id="formVender">
+          <label>Sabor:</label>
+          <input type="text" id="saborVender" required />
+          <label>Quantidade:</label>
+          <input type="number" id="quantidadeVender" required />
+          <label>Comprador:</label>
+          <input type="text" id="comprador" required />
+          <button type="button" onclick="venderTrufa()">Registrar Venda</button>
+        </form>
+        <button onclick="fecharPopup('venderPopup')">Fechar</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Modal para Estoque -->
-  <div id="estoquePopup" class="popup" style="display: none;">
-    <div class="popup-content">
-      <h2>Estoque</h2>
-      <button onclick="mostrarEstoqueAtual()">Estoque Atual</button>
-      <button onclick="mostrarVendas15Dias()">Últimos 15 Dias</button>
-      <div id="estoqueDetalhes"></div>
-      <button onclick="fecharPopup('estoquePopup')">Fechar</button>
+    <!-- Modal para Estoque -->
+    <div id="estoquePopup" class="popup" style="display: none">
+      <div class="popup-content">
+        <h2>Estoque</h2>
+        <button onclick="mostrarEstoqueAtual()">Estoque Atual</button>
+        <button onclick="mostrarVendas15Dias()">Últimos 15 Dias</button>
+        <div id="estoqueDetalhes"></div>
+        <button onclick="fecharPopup('estoquePopup')">Fechar</button>
+      </div>
     </div>
-  </div>
 
-  <footer>
-    <p>&copy; Desenvolvido por VEBEA.CO - 2024</p>
-  </footer>
+    <footer>
+      <p>&copy; Desenvolvido por NINE THREE.CO - 2024</p>
+    </footer>
 
-  <script src="./js/index.js"></script>
-</body>
+    <script src="./js/index.js"></script>
+  </body>
 </html>
