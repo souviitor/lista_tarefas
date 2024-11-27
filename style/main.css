@@ -43,8 +43,8 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  
 }
+
 button {
   margin-left: 40px;
   margin-top: 10px;
@@ -59,71 +59,71 @@ button {
 }
 
 #incluirPopup,
-#venderPopup, #estoquePopup {
+#venderPopup,
+#estoquePopup {
   width: 10%;
   display: flex;
   justify-content: center;
   margin-left: 850px;
-  
-  button{
+
+  button {
     margin: 0 auto;
     font-size: 13px;
     padding: 2px;
   }
 
-  #formIncluir button, #formVender button{
+  #formIncluir button,
+  #formVender button {
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
   }
 
-    h2 {
-      margin-top: 50px;
-      color: white;
-    }
-  }
-  label,
-  input {
-    display: flex;
-    color: #fff;
-    margin-top: 9px;
-  }
-
-  #estoquePopup{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    button{
-      margin: 0 auto;
-    }
-
-  }
-  .popup-content {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #estoquePopup h2{
+  h2 {
     margin-top: 50px;
-    color: #fff;
-    text-align: center;
+    color: white;
   }
+}
+label,
+input {
+  display: flex;
+  color: #fff;
+  margin-top: 9px;
+}
 
-  #estoqueDetalhes{
-    color: #fff;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    padding: 10px;
-  }
+#estoquePopup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  input {
-    padding: 10px;
-    width: 150px;
+  button {
+    margin: 0 auto;
   }
-  
+}
+.popup-content {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+#estoquePopup h2 {
+  margin-top: 50px;
+  color: #fff;
+  text-align: center;
+}
+
+#estoqueDetalhes {
+  color: #fff;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+}
+
+input {
+  padding: 10px;
+  width: 150px;
+}
 
 footer {
   display: flex;
@@ -152,9 +152,12 @@ footer {
 
   .principal {
     display: flex;
-    margin-left: 100px;
+    margin-left: 0; /* Removido para centralizar */
     margin-top: 40px;
+    margin-left: 90px;
+    justify-content: center; /* Centraliza os elementos dentro da .principal */
   }
+
   .principal button {
     width: 50%;
     padding: 5px;
@@ -168,13 +171,18 @@ footer {
 
   #incluirPopup,
   #venderPopup {
-    margin-left: 119px;
+    margin-left: 40px;
+    width: 80%;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
     h2 {
       margin-top: 50px;
       color: white;
     }
   }
+
   label,
   input {
     display: flex;
@@ -194,7 +202,14 @@ footer {
     color: #000;
   }
 
-  #estoqueDetalhes{
+  #estoquePopup {
+    width: 80%; /* Ajusta a largura do popup */
+    display: block;
+    margin: 0 auto; /* Centraliza a div */
+    margin-top: 20px;
+  }
+
+  #estoqueDetalhes {
     color: #fff;
   }
 }
