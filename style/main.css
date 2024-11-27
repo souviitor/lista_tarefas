@@ -154,7 +154,7 @@ footer {
     display: flex;
     margin-left: 0; /* Removido para centralizar */
     margin-top: 40px;
-    margin-left: 90px;
+    margin-left: 120px;
     justify-content: center; /* Centraliza os elementos dentro da .principal */
   }
 
